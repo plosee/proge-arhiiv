@@ -4,18 +4,6 @@ $dir = Split-Path $scriptpath
 
 $123sitt = read-host "Mis on csv faili nimi? (.csv)"
 
-
-#if ($123sitt -notmatch "$_.csv")
-#{
-    ##DO
-   #     {
-  #          $123sitt = read-host "palun pane õige fail '.csv' faililaiendga"
- #       }
-#
- #   Until ($123sitt -match "$_.csv" && test-path)
-#}
-
-
 if ((![System.IO.File]::Exists($dir)) -and $123sitt -notmatch "$_.csv"){
 
     write-host "kuulse seda faili ei eksisteeri, mis sinuga toimub"
