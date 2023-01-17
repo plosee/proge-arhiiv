@@ -1,0 +1,47 @@
+#tkinter python metshein ylesanne 04
+from tkinter import *
+
+aken = Tk()
+aken.title('kalkulaator mis ei toota')
+aken.option_add('*font', ('tahoma', 12))
+aken.geometry('200x200')
+
+tekst = Label(aken, text="perses kalkulaator",width=4)
+tekst.grid(row=0, column=1,padx=2,pady=2,columnspan=4,sticky=E+W)
+nupp1 = Button(aken, text="1",width=4)
+nupp1.grid(row=1, column=1,padx=2,pady=2)
+nupp2 = Button(aken, text="2",width=4)
+nupp2.grid(row=1, column=2,padx=2,pady=2)
+nupp3 = Button(aken, text="3",width=4)
+nupp3.grid(row=1, column=3,padx=2,pady=2)
+nupp4 = Button(aken, text="+",width=4)
+nupp4.grid(row=1, column=4,padx=2,pady=2)
+
+nupp10 = Button(aken, text="4",width=4)
+nupp10.grid(row=2, column=1,padx=2,pady=2)
+nupp20 = Button(aken, text="5",width=4)
+nupp20.grid(row=2, column=2,padx=2,pady=2)
+nupp30 = Button(aken, text="6",width=4)
+nupp30.grid(row=2, column=3,padx=2,pady=2)
+nupp40 = Button(aken, text="-",width=4)
+nupp40.grid(row=2, column=4,padx=2,pady=2)
+
+nupp11 = Button(aken, text="7",width=4)
+nupp11.grid(row=3, column=1,padx=2,pady=2)
+nupp21 = Button(aken, text="8",width=4)
+nupp21.grid(row=3, column=2,padx=2,pady=2)
+nupp31 = Button(aken, text="9",width=4)
+nupp31.grid(row=3, column=3,padx=2,pady=2)
+nupp41 = Button(aken, text="/",width=4)
+nupp41.grid(row=3, column=4,padx=2,pady=2)
+
+nupp12 = Button(aken, text="0",width=4)
+nupp12.grid(row=4, column=1,padx=2,pady=2)
+nupp22 = Button(aken, text=".",width=4)
+nupp22.grid(row=4, column=2,padx=2,pady=2)
+nupp32 = Button(aken, text="=",width=4)
+nupp32.grid(row=4, column=3,padx=2,pady=2)
+nupp42 = Button(aken, text="*",width=4)
+nupp42.grid(row=4, column=4,padx=2,pady=2)
+
+aken.mainloop()
