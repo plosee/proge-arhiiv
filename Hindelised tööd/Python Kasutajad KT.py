@@ -1,7 +1,7 @@
 import random
 
-it22 = open("it22.txt.txt", encoding = "UTF-8")
-failisisu = it22.readlines()
+it21 = open("it21.txt", encoding = "UTF-8")
+failisisu = it21.readlines()
 
 def replaceid(l):
     for i in l:
