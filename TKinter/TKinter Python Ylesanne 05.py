@@ -6,6 +6,7 @@ aken.title('Kaibemaksukalkulaator')
 aken.geometry('400x200')
 font = ('Comic Sans MS', 12, 'bold italic') #haha comic sans
 aken.option_add('*font', (font))
+aken.resizable(0, 0)
 
 #sisestuse label ja entry
 sisestulabel = Label(aken, text='Hind kaibemaksuta: ', padx=2,pady=2)
