@@ -5,7 +5,7 @@ from tkinter import *
 
 root = Tk()                            
 root.title('munandi vaega kontrolltoo')
-root.geometry('300x200')               
+root.geometry('250x150')               
 root.resizable(0, 0)                                                         
 
 ######################################## 
@@ -22,6 +22,7 @@ veelykslabel.grid(row=3, column=1)
 # mul on pisike onnetus et see tegelikult ei hoia seda malus
 # niiet naeb ainult seda viimast korda kui see vahetub
 # ideeks voib olla teha nii mitu muutujat mis sisestuses ytleb aga see on liiga palju tood
+
 def terv2():
     arv = int(sisestus.get())
     for i in range(arv):
@@ -31,8 +32,11 @@ def terv2():
 # siin siis kysib mitu kylalist labeliga ja viskab prorammi entry, mille sisse saab kasutaja panna numbri
 sisestuslabel = Label(root,text='Mitu kylalist tuleb sinna varki?')
 sisestuslabel.grid(row=0,column=1)
-sisestus = Entry(root)
-sisestus.grid(row=1,column=1,columnspan=4)
+sisestus = Entry(root,)
+sisestus.grid(row=1,column=1,columnspan=2)
+
+enter = Button(root, text= 'enter', command = terv2, width=20)
+enter.grid(row=4, column=1)
 
 # ja siis nagu alati on loop lopus et programm tootaks nii kaua kui kinni pannakse
 root.mainloop()
