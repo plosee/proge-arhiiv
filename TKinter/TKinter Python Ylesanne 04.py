@@ -5,6 +5,7 @@ aken = Tk()
 aken.title('kalkulaator mis ei toota')
 aken.option_add('*font', ('tahoma', 12))
 aken.geometry('200x200')
+aken.resizable(0, 0)
 
 tekst = Label(aken, text="perses kalkulaator",width=4)
 tekst.grid(row=0, column=1,padx=2,pady=2,columnspan=4,sticky=E+W)
