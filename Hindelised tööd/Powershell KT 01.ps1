@@ -2,33 +2,33 @@
 $scriptpath = $MyInvocation.MyCommand.Path
 $dir = Split-Path $scriptpath
 
-$123sitt = read-host "Mis on csv faili nimi? (.csv)"
+$123 = read-host "Mis on csv faili nimi? (.csv)"
 
-if ((![System.IO.File]::Exists($dir)) -and $123sitt -notmatch "$_.csv"){
+if ((![System.IO.File]::Exists($dir)) -and $123 -notmatch "$_.csv"){
 
     write-host "kuulse seda faili ei eksisteeri, mis sinuga toimub"
 
     DO
         {  
-            $123sitt = read-host "pane nyyd OIGE .csv fail siia pls: "
+            $123 = read-host "pane nyyd OIGE .csv fail siia pls: "
         }
 
-    Until ((test-path $dir/$123sitt) -eq $true -and $123sitt -match "$_.csv")  
+    Until ((test-path $dir/$123sitt) -eq $true -and $123 -match "$_.csv")  
 
 } 
 
-$sitt = ""
-$sitt = get-content  $dir/$123sitt
-new-item $dir\muun.txt
+$kanamuna = ""
+$kanamuna = get-content  $dir/$123
+new-item $dir\emails.txt
 
-foreach ($nimi in $sitt){
+foreach ($nimi in $kanamuna){
 
     $TextInfo = (Get-Culture).TextInfo
-    $muna = $nimi.Replace("gmail", "").Replace("com","").replace(".", " ").replace("@", "")
-    $munn = $TextInfo.ToTitleCase($muna)
+    $emailgo = $nimi.Replace("gmail", "").Replace("com","").replace(".", " ").replace("@", "")
+    $emailTC = $TextInfo.ToTitleCase($emailTC)
     
     
-    $munn >> $dir\munn.txt
+    $emailTC >> $dir\emails.txt
 }
 
 
