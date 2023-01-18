@@ -7,7 +7,7 @@ aken.option_add('*font', ('tahoma', 12))
 aken.geometry('200x200')
 aken.resizable(0, 0)
 
-tekst = Label(aken, text="perses kalkulaator",width=4)
+tekst = Label(aken, text="katkine kalkulaator",width=4)
 tekst.grid(row=0, column=1,padx=2,pady=2,columnspan=4,sticky=E+W)
 nupp1 = Button(aken, text="1",width=4)
 nupp1.grid(row=1, column=1,padx=2,pady=2)
