@@ -21,7 +21,7 @@ foreach($nimi in $emails){
     $enimi = $nimi.first_name
     $vnimi = $nimi.last_name
 
-    $sitaratas = $enimi.ToLower()+$vnimi.ToLower()+$emailinp
-    $sitaratas >> $dir/emailid.txt
+    $nimilow = $enimi.ToLower()+$vnimi.ToLower()+$emailinp
+    $nimilow >> $dir/emailid.txt
 
 }
