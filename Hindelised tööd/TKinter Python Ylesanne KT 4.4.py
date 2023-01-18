@@ -4,7 +4,7 @@ from tkinter import *
 ##### aaa ja marten laane ylesanne #####
 
 root = Tk()                            
-root.title('munandi vaega kontrolltoo')
+root.title('kalevipoja vaega kontrolltoo')
 root.geometry('250x150')               
 root.resizable(0, 0)                                                         
 
