@@ -11,6 +11,6 @@ foreach ($domain in $domains) {
     try { wget $domain -UseBasicParsing }
     catch { "Error occured" }
     if (!$error) { $domain >> $dir/tootavdom.txt }
-    else { $domain >> $dir/ntootavdom.txt }
+    else { $domain >> $dir/ntootavdom.txt 
     
 }    
