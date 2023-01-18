@@ -15,7 +15,7 @@ font = ('Tamoha', 12, 'bold italic')
 root.option_add('*font',(font))
 # default font hack      ^^^^^^^
 
-# ja siis teeb labelid KOIKIDE \N-IDEGA KUNA UUED LABELID ON ROVEDAD
+# ja siis teeb labelid KOIKIDE \N-IDEGA KUNA UUED LABELID ON ******
 label0 = Label(root, text='Nimi: Marten Laane\nRyhm: IT-22\n2022', bg='#9F2B68', padx=2, pady=2)
 label0.pack()
 
