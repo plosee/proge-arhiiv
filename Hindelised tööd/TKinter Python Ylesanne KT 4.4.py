@@ -18,10 +18,6 @@ veelykslabel.grid(row=3, column=1)
 # siis kasutab seda integeri et muuta L muutujat mis naitab mitu korda tervitust 
 # nii mitu korda kui kasutaja tahtis ja siis muudab 'veelykslabeli' configi
 # mis viskab teksti programmi sisse
-# 
-# mul on pisike onnetus et see tegelikult ei hoia seda malus
-# niiet naeb ainult seda viimast korda kui see vahetub
-# ideeks voib olla teha nii mitu muutujat mis sisestuses ytleb aga see on liiga palju tood
 
 def terv2():
     arv = int(sisestus.get())
