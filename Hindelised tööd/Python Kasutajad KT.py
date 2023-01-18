@@ -12,6 +12,6 @@ def pullikaka(p):
         i = i.replace("ü", "")
         i = i.replace ("\n", "")
         em = i.split(" ")
-        print(f"{i[0]}{em[1]}@gmail.com | {em[0]}.{em[1]}@gmail.com | {i[0]}{random.randint(10:)}")
+        print(f"{i[0]}{em[1]}@gmail.com | {em[0]}.{em[1]}@gmail.com | {i[0]}{random.randint(10, 98)}")
 
 pullikaka(failisisu)      

@@ -25,8 +25,9 @@ veelykslabel.grid(row=3, column=1)
 
 def terv2():
     arv = int(sisestus.get())
+    L = ""
     for i in range(arv):
-        L = f"Võõrustaja: 'Tere!' \n Täna {i+1}. kord tervitada, mõtiskleb võõrustaja \n  Külaline: 'Tere, suur tänu kutse eest!'"
+        L += f"Võõrustaja: 'Tere!' \n Täna {i+1}. kord tervitada, mõtiskleb võõrustaja \n  Külaline: 'Tere, suur tänu kutse eest!'"
         veelykslabel.config(text = L)
 
 # siin siis kysib mitu kylalist labeliga ja viskab prorammi entry, mille sisse saab kasutaja panna numbri
