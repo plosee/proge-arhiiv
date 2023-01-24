@@ -5,9 +5,9 @@ var eludearv = 100
 var lenght = String(mangijanimi).length()
 
 func _ready():
+	print("------ Esimene Ylesanne ------")
 	print(mangijanimi)
 	print(eludearv)
-	print("------ teine yl ------")
 	print(lenght)
 	print(eludearv+2)
 	print("========== nyyd tulevad randnumbrid ===========")
