@@ -1,0 +1,145 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_4.png" type="Texture" id=2]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_1.png" type="Texture" id=3]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_2.png" type="Texture" id=4]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_3.png" type="Texture" id=5]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_7.png" type="Texture" id=6]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/j_up/j_up_3.png" type="Texture" id=7]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_3.png" type="Texture" id=8]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_6.png" type="Texture" id=9]
+[ext_resource path="res://Background_2.png" type="Texture" id=10]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_5.png" type="Texture" id=11]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/j_up/j_up_2.png" type="Texture" id=12]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_2.png" type="Texture" id=13]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_8.png" type="Texture" id=14]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_8.png" type="Texture" id=15]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_7.png" type="Texture" id=16]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/j_up/j_up_1.png" type="Texture" id=17]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_1.png" type="Texture" id=18]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/idle/idle_6.png" type="Texture" id=19]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_4.png" type="Texture" id=20]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/run/run_5.png" type="Texture" id=21]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/j_down/j_down_3.png" type="Texture" id=22]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/j_down/j_down_2.png" type="Texture" id=23]
+[ext_resource path="res://elementals_wind_hashashin_FREE_v1.1/elementals_wind_hashashin_FREE_v1.1/PNG/j_down/j_down_1.png" type="Texture" id=24]
+[ext_resource path="res://tekstuur.png" type="Texture" id=25]
+[ext_resource path="res://Node.gd" type="Script" id=26]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 12 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 6 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.0
+height = 8.0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 65, 20.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 192.5, 21 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 26 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+margin_right = 496.0
+margin_bottom = 272.0
+texture = ExtResource( 10 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Node2D"]
+margin_left = 188.0
+margin_top = 21.0
+margin_right = 293.0
+margin_bottom = 94.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
+margin_left = 4.0
+margin_top = 6.0
+margin_right = 122.0
+margin_bottom = 39.0
+text = "Elud: "
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Node2D"]
+position = Vector2( 89, -7 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/KinematicBody2D"]
+frames = SubResource( 1 )
+animation = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/KinematicBody2D"]
+position = Vector2( 0, 43 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D"]
+position = Vector2( 32, 94 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Node2D/StaticBody2D3"]
+position = Vector2( 58.0001, -0.999969 )
+scale = Vector2( 0.993422, 0.334586 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D3"]
+position = Vector2( 57, -2 )
+shape = SubResource( 5 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D"]
+position = Vector2( -49, -4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Node2D/StaticBody2D2"]
+position = Vector2( 249, 162 )
+scale = Vector2( 2.91917, 0.334586 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
+position = Vector2( 248.5, 163 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+position = Vector2( 16, 47 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Node2D/StaticBody2D"]
+position = Vector2( 377.063, 162 )
+scale = Vector2( 0.993422, 0.334586 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2( 377, 162.5 )
+shape = SubResource( 5 )
