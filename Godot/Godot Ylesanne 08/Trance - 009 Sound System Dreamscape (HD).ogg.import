@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Trance - 009 Sound System Dreamscape (HD).ogg-ccb96da0c58afe80a4da7f77fc5a38ba.oggstr"
+
+[deps]
+
+source_file="res://Trance - 009 Sound System Dreamscape (HD).ogg"
+dest_files=[ "res://.import/Trance - 009 Sound System Dreamscape (HD).ogg-ccb96da0c58afe80a4da7f77fc5a38ba.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
