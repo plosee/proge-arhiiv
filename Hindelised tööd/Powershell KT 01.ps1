@@ -1,4 +1,5 @@
-#kt 1
+#kt 
+
 $scriptpath = $MyInvocation.MyCommand.Path
 $dir = Split-Path $scriptpath
 
@@ -18,17 +19,15 @@ if ((![System.IO.File]::Exists($dir)) -and $123 -notmatch "$_.csv"){
 } 
 
 $kanamuna = ""
-$kanamuna = get-content  $dir/$123
-new-item $dir\emails.txt
+$kanamuna = get-content $dir/$123
+new-item $dir\genderbender.txt
 
 foreach ($nimi in $kanamuna){
+    
 
-    $TextInfo = (Get-Culture).TextInfo
-    $emailgo = $nimi.Replace("gmail", "").Replace("com","").replace(".", " ").replace("@", "")
-    $emailTC = $TextInfo.ToTitleCase($emailTC)
     
     
-    $emailTC >> $dir\emails.txt
+     >> $dir\genderbender.txt
 }
 
 
