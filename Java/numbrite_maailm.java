@@ -19,6 +19,7 @@ public class numbrite_maailm {
     public static void ellipsi_pindala(double a, double b) {
         // arvutab ellipsi pindala
         double pindala = Math.PI * a * b;
+pindala = Math.round(pindala*100)/100;
         System.out.println("Ellipsi pindala: " + pindala);
     }
 
