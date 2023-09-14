@@ -12,6 +12,7 @@ public class Problem_independent {
         System.out.println("3. Valjasta read");
         System.out.println("4. Eesti lipp");
         int valik = scan.nextInt();
+        scan.close();
 
         switch(valik){
             case 1:
