@@ -6,10 +6,10 @@ public class treeningrajad {
     public int pikkus;
     public double parim_aeg;
     // konstruktor
-    public void treeningrajad(String x, int y, double z) {
-        this.nimi = "nurburgring";
-        this.pikkus = 3;
-        this.parim_aeg = 2.3;
+    public treeningrajad(String x, int y, double z) {
+        this.nimi = x;
+        this.pikkus = y;
+        this.parim_aeg = z;
     }
     // meetodid
     public void info() {

@@ -10,10 +10,12 @@ public class Problem_8_1{
 		Scanner scanner = new Scanner (System.in);
 		System.out.print("Rööpküliku pindala (1) \nRistküliku pindala (2) \nKolmnurga pindala (3) \nSilindri ruumala (4) \nRisttahuka ruumala (5) \nKoonuse ruumala (6) \nVali tegevus: "); 
 		String valik = scanner.next();
+
         if (valik.equals("5")){
             System.out.print("Sisesta laius: ");
             laius = scanner.next();
         }
+		
 		System.out.print("Sisesta alus: ");
 		String alus = scanner.next();
 		System.out.print("Sisesta kõrgus: ");

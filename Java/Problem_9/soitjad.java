@@ -6,10 +6,10 @@ public class soitjad {
     public int pikkus;
     public double parim_aeg;
     // konstruktor
-    public void soitjad(String x, int y, double z) {
-        this.nimi = "jyri";
-        this.pikkus = 180;
-        this.parim_aeg = 3.5;
+    public soitjad(String x, int y, double z) {
+        this.nimi = x;
+        this.pikkus = y;
+        this.parim_aeg = z;
     }
     // meetodid
     public void Tutvustus() {
