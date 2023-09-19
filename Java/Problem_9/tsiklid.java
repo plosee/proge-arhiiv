@@ -1,7 +1,6 @@
 
 package Problem_9;
 import java.time.LocalDate;
-import java.util.random.*;
 
 public class tsiklid {
     // varid

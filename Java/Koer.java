@@ -4,7 +4,7 @@ public class Koer {
     public int vanus;
     public String varv;
     // konstruktor
-    public void Koer(String x, int y, String z) {
+    public Koer(String x, int y, String z) {
         this.nimi = x;
         this.vanus = y;
         this.varv = z;

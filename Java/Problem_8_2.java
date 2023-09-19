@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Problem_8_2 {
     public static void main(String[] args) {
+        String nimi, varv;
+        int vanus;
         Scanner scanner = new Scanner(System.in);
-        Koer koer1 = new Koer();
         Koer_tegevus koer2 = new Koer_tegevus();
 
         System.out.print("Mida sa soovid teha (1-4)\n1. Tutvustus\n2. Istu\n3. Lamama\n4. Seisma\nSisesta valik: ");
@@ -11,13 +12,14 @@ public class Problem_8_2 {
         switch(valik){
             case 1:
                 System.out.print("Sisesta koera nimi: ");
-                String nimi = scanner.next();
+                nimi = scanner.next();
                 System.out.print("Sisesta koera vanus: ");
-                int vanus = scanner.nextInt();
+                vanus = scanner.nextInt();
                 System.out.print("Sisesta koera karvavärv: ");
-                String varv = scanner.next();
-                koer1.Koer(nimi, vanus, varv);
+                varv = scanner.next();
+                Koer koer1 = new Koer(nimi, vanus, varv);
                 koer1.Tutvustus();
+                scanner.close();
                 break;
             case 2:
                 koer2.istu();
