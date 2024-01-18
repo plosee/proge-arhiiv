@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <script src="https://kit.fontawesome.com/5f11feec13.js" crossorigin="anonymous"></script>
+        <script>
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+        </script>
+    </head>
+<body>
+    <div class="container">
+        <h1>logi sisse voi midagi</h1>
+        <form class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="validationCuston01">eesnimi:</label>
+                        <input class="form-control" placeholder="eesnimi" type="text" id="validationCustom01" required>
+                        <div class="valid-feedback">Korras</div>
+                        <div class="invalid-feedback">Palun täida!</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">email:</label>
+                        <input class="form-control" placeholder="email@email.ee" type="text" id="email" required>
+                        <div class="valid-feedback">Korras</div>
+                        <div class="invalid-feedback">Palun täida!</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="perenimi">perenimi:</label>
+                        <input class="form-control" placeholder="perenimi" type="text" id="perenimi" required>
+                        <div class="valid-feedback">Korras</div>
+                        <div class="invalid-feedback">Palun täida!</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefon">telefon:</label>
+                        <input class="form-control" placeholder="555 5555" type="text" id="telefon" required>
+                        <div class="valid-feedback">Korras</div>
+                        <div class="invalid-feedback">Palun täida!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="kirjeldus">Kirjeldus: </label>
+                <textarea class="form-control" id="kirjeldus" rows="3"></textarea>
+                <div class="valid-feedback">Korras</div>
+                <div class="invalid-feedback">Palun täida!</div>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                    Nõustun <a href="#">tingimustega</a>
+                </label>
+                <div class="valid-feedback">Korras</div>
+                <div class="invalid-feedback">Palun täida!</div>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+        
+    </div>
+
+</body>
+</html>
