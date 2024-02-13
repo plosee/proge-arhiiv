@@ -42,14 +42,15 @@
                 echo "kooliaasta lõpuni on veel ".$diff->format('%R%a')." paeva";
                 // aastaaeg
                 echo "<br>";
+                
                 if (date('n') >= 3 && date('n') <= 5){
-                    echo "<img src='https://www.thesun.co.uk/wp-content/uploads/2021/12/NINTCHDBPICT000722073073.jpg' alt='talv' width='300' height='300'> kevad";
+                    echo "<img src='<img src='https://picsum.photos/id/684/600/400' alt='talv' width='300' height='300'>";
                 } else if (date('n') >= 6 && date('n') <= 8){
-                    echo "<img src='https://www.thesun.co.uk/wp-content/uploads/2021/12/NINTCHDBPICT000722073073.jpg' alt='talv' width='300' height='300'> suvi";
+                    echo "<img src='<img src='https://picsum.photos/id/684/600/400' alt='talv' width='300' height='300'> suvi";
                 } else if (date('n') >= 9 && date('n') <= 11){
-                    echo "<img src='https://www.thesun.co.uk/wp-content/uploads/2021/12/NINTCHDBPICT000722073073.jpg' alt='talv' width='300' height='300'> talv";
+                    echo "<<img src='<img src='https://picsum.photos/id/684/600/400' alt='talv' width='300' height='300'> talv";
                 } else {
-                    echo "<img src='https://www.thesun.co.uk/wp-content/uploads/2021/12/NINTCHDBPICT000722073073.jpg' alt='talv' width='300' height='300'> talv";
+                    echo "<img src='<img src='https://picsum.photos/id/684/600/400' alt='talv' width='300' height='300'> talv";
                 }
             ?>
         </div>

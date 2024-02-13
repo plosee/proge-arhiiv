@@ -86,7 +86,7 @@
                     <?php
                     if($kylg1 == $kylg2){
                         
-                        echo "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/SquareDefinition.svg/1024px-SquareDefinition.svg.png'>";
+                        echo "<img src='img/fial.png'>";
                     } else {
                         echo "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Rectangle_Geometry_Vector.svg/1280px-Rectangle_Geometry_Vector.svg.png'>";
                     }
