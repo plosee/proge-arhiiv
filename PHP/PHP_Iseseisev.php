@@ -14,39 +14,38 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
-
     </head>
 
     <body>
         <div class="container">
             <h1>Harjutus</h1>
-            <div class="row">
-                <?php
+            <?php
                 /*
-                    14 - PHP - Piltidega too
+                    Iseseisev - PHP
                     Marten Laane
                     14.02.2024
                 */
 
-                $kataloog = array(
-                    "pildid/1.jpg",
-                    "pildid/2.jpg",
-                    "pildid/3.jpg",
-                    "pildid/4.jpg",
-                    "pildid/5.jpg",
-                    "pildid/6.jpg",
-                );
-
-                for ($i = 1; $i <= 3; $i++) {
-                    $rand = rand(0, 5);
-                    echo "<div class='col-md-4'>
-                    <a href='".$kataloog[$rand]."'>
-                    <img src='".$kataloog[$rand]."' class='img-fluid'/>
-                    </div>";
+                echo 'Juhan liiv, "ääremärkused"';
+                echo '<br>';
+                $pangas_raha = 2000;
+                for ($i = 0; $i < 5; $i++){
+                    $pangas_raha = $pangas_raha * 1.2;
                 }
+                echo $pangas_raha." viie aasta parast";
+                echo "<br>";
+                $arv = 10;
+                while ($arv > 0){
+                    echo $arv."<br>";
+                    $arv--;
+                }
+                echo "<br>";
+                $alus = array("maja", "auto", "kool");
+                $oeldis = array("on", "ei ole", "võib olla");
+                $sihitis = array("armas", "suur", "ilus");
+                echo $alus[rand(0,2)]." ".$oeldis[rand(0,2)]." ".$sihitis[rand(0,2)];
 
-
-                ?>
+            ?>
         </div>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
