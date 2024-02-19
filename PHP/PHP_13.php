@@ -20,6 +20,13 @@
         <div class="container">
             <h1>Harjutus</h1>
             <?php
+
+                /*
+                    13 - PHP - Faili üleslaadimine
+                    Marten Laane
+                    14.02.2024
+                */
+
                 echo '<form action="" method="post" enctype="multipart/form-data">
                 <input type="file" name="minu_fail"><br>
                 <input type="submit" value="Lae üles!">
@@ -28,21 +35,16 @@
                 if (isset($_FILES['minu_fail'])){
                     $failinimi = $_FILES['minu_fail']['name'];
                     $faili_tuup = $_FILES['minu_fail']['type'];
-                    $faili_suurus = $_FILES['minu_fail']['size'];
                     $faili_ajutine_nimi = $_FILES['minu_fail']['tmp_name'];
                     $faili_veakood = $_FILES['minu_fail']['error'];
                     $lubatud_tuubid = array('image/jpeg', 'image/jpg');
                     if (in_array($faili_tuup, $lubatud_tuubid)){
                         if ($faili_veakood === 0){
-                            if ($faili_suurus <= 1000000){
-                                $faili_nimi = uniqid('', true).'.'.$failinimi;
-                                $faili_sihtkoht = 'pildid/'.$faili_nimi;
-                                move_uploaded_file($faili_ajutine_nimi, $faili_sihtkoht);
-                                echo "Faili üleslaadimine õnnestus!";
-                                echo "<a href='".$faili_sihtkoht."'><img src='".$faili_sihtkoht."' class='img-fluid'/></a>";
-                            } else {
-                                echo "Fail on liiga suur!";
-                            }
+                            $faili_nimi = uniqid('', true).'.'.$failinimi;
+                            $faili_sihtkoht = 'pildid/'.$faili_nimi;
+                            move_uploaded_file($faili_ajutine_nimi, $faili_sihtkoht);
+                            echo "Faili üleslaadimine õnnestus!";
+                            echo "<a href='".$faili_sihtkoht."'><img src='".$faili_sihtkoht."' class='img-fluid'/></a>";
                         } else {
                             echo "Tekkis viga faili üleslaadimisel!";
                         }

@@ -28,20 +28,19 @@
                     14.02.2024
                 */
 
-                $kataloog = array(
-                    "pildid/1.jpg",
-                    "pildid/2.jpg",
-                    "pildid/3.jpg",
-                    "pildid/4.jpg",
-                    "pildid/5.jpg",
-                    "pildid/6.jpg",
-                );
-
+                $kataloog = 'pildid/';
+                $asukoht = opendir($kataloog);
+                $pildid = array();
+                while ($fail = readdir($asukoht)){
+                    if ($fail != '.' && $fail != '..'){
+                        array_push($pildid, $fail);
+                    }
+                }
                 for ($i = 1; $i <= 3; $i++) {
                     $rand = rand(0, 5);
                     echo "<div class='col-md-4'>
-                    <a href='".$kataloog[$rand]."'>
-                    <img src='".$kataloog[$rand]."' class='img-fluid'/>
+                    <a href='pildid/".$pildid[$rand]."'>
+                    <img src='pildid/".$pildid[$rand]."' class='img-fluid'/>
                     </div>";
                 }
 
