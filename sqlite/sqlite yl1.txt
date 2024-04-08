@@ -1,0 +1,46 @@
+SQLite3 ÜLESANNE 1
+NB! Kõik ülesanded tuleb dokumenteerida. Kirjas peavad olema käsud, selgitus ja tulemus. Tulemused võivad vajadusel olla ka pildina
+
+loo andmebaas nime epood_sinukasutaja (kasutaja sama mis liivakastis näiteks epood_mmetshein)
+Andmebaasi tegemiseks peab minema sqlite kausta ning avama terminali seal
+sqlite3.exe sinu_andmebaas.db
+
+loo tabel sinukasutaja (näiteks mmetshein)
+tekita väljad (veerud) andmete hoidmiseks kindla andmetüübiga:
+id (täisarv, automaatselt suureneb, primaarvõti)
+first_name (sümbolid, 255 märki)
+last_name  (sümbolid, 255 märki)
+email (sümbolid, 255 märki)
+car_make (sümbolid, 255 märki)
+car_model (sümbolid, 255 märki)
+car_year (aasta)
+car_price (komaarv, 2 komakohta)
+
+ATTACH DATABASE 'epood_mlaane.db' as 'epood';
+CREATE TABLE epood.mlaane(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+first_name VARCHAR(255) NOT NULL,
+last_name VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+car_make VARCHAR(255) NOT NULL,
+car_model VARCHAR(255) NOT NULL,
+car_year INTEGER,
+car_price DECIMAL(10,2));
+
+Lisa vähemalt 3 kliendi andmed, millest üks oled sina.
+INSERT INTO mlaane(first_name,last_name,email,car_make,car_model,car_year,car_price) 
+VALUES('marten','laane','marten.laane@gmail.com','bang','kok',2014,6263.35);
+INSERT INTO mlaane(first_name,last_name,email,car_make,car_model,car_year,car_price) 
+VALUES('karin','eegreid','karin.eegredi@gmail.com','beemve','ii 26',2024,259050.35);
+INSERT INTO mlaane(first_name,last_name,email,car_make,car_model,car_year,car_price) 
+VALUES('munala','kuja','lakkuja@gmail.com','kia','i2i5s',2000,2000.76);
+
+Kuva kõik andmed
+SELECT * FROM mlaane;
+
+Mine lehele https://www.mockaroo.com ja genereeri samad andmed 1000tk ja impordi need oma andmebaasi.
+Mis formaadis lood andmed? sql formaadis
+Ehk enne tuleb uurida, kuidas saab neid importida oma tabelisse ja siis saad Mockaroo lehel valida õige formaadi.
+panen sql faili sqlitei asukohta
+.read mlaane.sql
+ 

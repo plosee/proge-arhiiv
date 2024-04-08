@@ -1,0 +1,22 @@
+Kuva read, kus on vanemad autod, kui 2000 aasta, sorteeri aasta järgi tõusvas järjekorras, kuva 20 rida
+select * from mlaane where car_year<2000 order by car_year limit 20;
+
+Kuva ühe reaga keskmine autode aasta, kõige kallim hind
+select avg(car_year),max(car_price) from mlaane;
+
+Kuva automaatselt 5 kõige uuemat automarki kood mudeliga
+select car_make, car_model, car_year from mlaane order by car_year desc limit 5;
+
+Kuva 5 kõige kallimat sinu valitud automarki, sorteeri perenime järgi
+ select * from mlaane where car_make='Audi' or car_make='GMC' or car_make='Kia'
+ or car_make='Buick' or car_make='BMW' order by car_price DESC, last_name limit 5;
+
+Kasutaja saab ID järgi kustutada andmeid
+Kustuta read, kus autode aasta jääb alla 2000 ning mingi kindla margi järgi
+delete from mlaane where car_year<2000 and car_make='BMW';
+
+Ekspordi kõik andmed CSV faili
+.mode csv
+.output test.csv
+select * from mlaane;
+.output stdout

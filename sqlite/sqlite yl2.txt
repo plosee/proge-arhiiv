@@ -1,0 +1,24 @@
+SQLite3 ÜLESANNE 2
+NB! Kõik ülesanded tuleb dokumenteerida. Kirjas peavad olema käsud, selgitus ja tulemus. Tulemused võivad vajadusel olla ka pildina
+
+Ava eelmises ülesandes loodud andmebaas
+Muuda enda lisatud automargiks Zaporožets
+update mlaane set car_make='Zaporožers' where id=1;
+
+Muuda kõik Cadillac margid Citroën’iks
+update mlaane set car_make='Citroën' where car_make='Cadillac';
+
+Kustuta ära read, mille ID on 5, 10 ja 15
+delete from mlaane where id=5;
+delete from mlaane where id=10;
+delete from mlaane where id=15;
+
+Kuva read, kus on ainult ID, perenimi, automark ja aasta, sorteeri ID järgi kasvavalt
+select id,last_name,car_make,car_year from mlaane order by id;
+
+Kuva 10 rida autosid koos kliendi nimega, kus kliendi perenimi hakkab sama algustähega, 
+mis sul, sorteeri autod aasta järgi kahanevalt
+select car_make,car_model,car_year,first_name,last_name from mlaane where last_name like 'l%' order by car_year desc limit 10;
+
+Kuva 2 vabalt valitud automarki sisaldavad read ja ületavad mingit summat
+select car_make,car_model,car_price from mlaane where car_price>10000.00 and car_make='Ford' or car_price>10000.00 and car_make='Kia';
