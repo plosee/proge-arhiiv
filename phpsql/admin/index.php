@@ -1,5 +1,5 @@
 <?php
-include ("C:/xampp/htdocs/KThindakogemust/config.php");
+include ("C:/xampp/htdocs/KT/config.php");
 session_start();
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -31,7 +31,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             <input type="submit" class="btn btn-primary my-2" value="Otsi">
         </form>
 
-        <a href="lisaasutus.php">lisa koht</a>
+        <a href="addmaja.php">lisa koht</a>
 
         <table class="table table-striped">
             <thead>
@@ -60,36 +60,35 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 $sql_otsi = $otsi ? "WHERE nimi LIKE '%$otsi%'" : '';
 
                 $sql_kohad = "SELECT * FROM kohad $sql_otsi ORDER BY $sort $order LIMIT $start, $lehekyljeSuurus";
-                $result = $yhendus->query($sql_kohad);                     
+                $result = $yhendus -> query($sql_kohad);                     
 
                 if ($result->num_rows > 0){
-                    while ($row = $result->fetch_assoc()){
+                    while ($row = $result -> fetch_assoc()){
                         $id = $row['id'];
 
-                        $hinnanuteArvQuery = "SELECT COUNT(*) as hinnanute_arv FROM hinnangud WHERE id_koht = '$id'";
-                        $hinnanuteResult = $yhendus->query($hinnanuteArvQuery);
-                        $hinnanuteArv = $hinnanuteResult->fetch_assoc()['hinnanute_arv'];
+                        $hinnanutearvquery = "SELECT COUNT(*) as hinnanute_arv FROM hinnangud WHERE id_koht = '$id'";
+                        $hinnanutevastus = $yhendus -> query($hinnanutearvquery);
+                        $hinnanutearvfetch = $hinnanutevastus -> fetch_assoc()['hinnanute_arv'];
 
-                        $keskmineHinneQuery = "SELECT AVG(hinnang) as keskmine_hinne FROM hinnangud WHERE id_koht = '$id'";
-                        $keskmineHinneResult = $yhendus->query($keskmineHinneQuery);
-                        $keskmineHinne = $keskmineHinneResult->fetch_assoc()['keskmine_hinne'];
-                        $YkeskmineHinne = round($keskmineHinne,1);
+                        $keskminehinnequery = "SELECT AVG(hinnang) as keskmine_hinne FROM hinnangud WHERE id_koht = '$id'";
+                        $keskminehinnevastus = $yhendus -> query($keskminehinnevastus);
+                        $keskminehinnefetch = $keskmineHinneResult -> fetch_assoc()['keskmine_hinne'];
+                        $keskminehinneumarda = round($keskminehinnefetch,1);
 
-                        $lisamiseParing = "UPDATE kohad SET keskmine_hinne = '$YkeskmineHinne', hinnanute_arv = '$hinnanuteArv' WHERE id = '$id'";
-                        $lisamiseTulemus = $yhendus->query($lisamiseParing);
+                        $lisamiseupdate = "UPDATE kohad SET keskmine_hinne = '$keskminehinneumarda', hinnanute_arv = '$hinnanutearvfetch' WHERE id = '$id'";
+                        $lisamisevastus = $yhendus -> query($lisamiseParing);
 
-                        $sqlMuudaParing = "SELECT * FROM hinnangud";
-                        $sqMuudaTulemus = $yhendus->query($sqlMuudaParing);
+                        $leiakoikhinnangud = "SELECT * FROM hinnangud";
+                        $hinnangudtulemus = $yhendus -> query($leiakoikhinnangud);
                         ?>
 
                         <tr>
                             <td> <a href="lisahinnang.php?koht=<?php echo urlencode($id); ?> "> <?php echo $row["nimi"]; ?></a></td>
-                            <td><?php echo $row["asukoht"]; ?> </td>
-                            <td><?php echo round($keskmineHinne, 1);?> </td>
-                            <td><?php echo $hinnanuteArv; ?> </td>
-                            <td><a href="muudaasutus.php?koht=<?php echo urlencode($id); ?>">muuda</a><a> / </a> <?php echo "<a href='kustutaasutus.php?koht=" . $id . "'>kustuta</a>"; ?></td>
+                            <td> <?php echo $row["asukoht"]; ?> </td>
+                            <td> <?php echo round($keskmineHinne, 1);?> </td>
+                            <td> <?php echo $hinnanuteArv; ?> </td>
+                            <td><a href="muudahoone.php?koht= <?php echo urlencode($id); ?> ">muuda</a><a> / </a> <?php echo "<a href='kustutahoone.php?koht=" . $id . "'>kustuta</a>"; ?></td>
                         </tr>
-
                         <?php
                     }
                 }
@@ -104,7 +103,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         if ($eelminelehekylg > 0) {
             echo "<a href='?lehekylg=$eelminelehekylg'>&lt; Eelmised</a>";
         }
-        if ($result->num_rows == $lehekyljeSuurus) {
+        if ($result -> num_rows == $lehekyljeSuurus) {
             echo "<a href='?lehekylg=$jargminelehekylg'> Järgmised &gt;</a>";
         }
         ?>
