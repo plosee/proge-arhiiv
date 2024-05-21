@@ -1,14 +1,11 @@
-<?php
-include ("config.php");
-session_start();
-?>
+<?php include ("config.php"); session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>index</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -30,7 +27,7 @@ session_start();
                 <img src="kypsised.php"><br>
                 <label for="kood">kaptcha pane kood pildilt pildi mitte thanedab ja kirjuta lihtsalt:</label><br>
                 <input type="text" name="kood" id="kood"><br>
-                <input type="submit" class="btn btn-success my-2" value="Saada">
+                <input type="submit" class="btn" value="saada">
             </form>
         <?php
         if(!empty($_GET['nimi']) && !empty($_GET['email']) && !empty($_GET['sonum'])){
@@ -38,25 +35,23 @@ session_start();
             $email = $_GET['email'];
             $sonum = $_GET['sonum'];
 
-            $to = 'martenn@gmail.com@gmail.com'; 
-            $subject = 'Tagasiside yl7'; 
-            $message = $sonum; 
-            $from = 'From: '.$nimi.'<'.$email.'>'; 
+            $kuhu = 'martenn@gmail.com@gmail.com'; 
+            $pealkrii = 'tagasia7';
+            $sisu = '123123123 lorem ipsum'
+            $kust = 'kustm: '.$nimi.' '.$email.; 
 
-            if ($_GET['kood']==$_SESSION['captchatext']){
-                if(mail($to, $subject, $message, $from)){ 
-                    echo "Email saadetud!<br>Täname tagasiside eest!"; 
+            if ($_GET['kood'] == $_SESSION['captchatext']){
+                if(mail($kuhu, $pealkrii, $sisu, $kust)){ 
+                    echo "email saadtetu"; 
                     echo "<meta http-equiv=\"refresh\" content=\"2;URL='index.php'\">"; 
                     exit(); 
                 } else { 
-                    echo "Teie emaili ei saadetud ära!"; 
+                    echo "ei saadetud haha"; 
                 }
             }
         }
         ?>
-        <?php
-        $yhendus->close();
-        ?>   
+        <?php $yhendus -> close();?>   
         </div>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
