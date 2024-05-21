@@ -1,14 +1,11 @@
-<?php
-include ("config.php");
-session_start();
-?>
+<?php include ("config.php"); session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>uudisted</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -19,15 +16,15 @@ session_start();
             <hr>
         
             <?php
-            $uudiseid_lehel = 4;
-            $uudiseid_kokku_paring = "SELECT COUNT('id') FROM uudised";
-            $lehtede_vastus = mysqli_query($yhendus, $uudiseid_kokku_paring);
-            $uudiseid_kokku = mysqli_fetch_array($lehtede_vastus);
-            $lehti_kokku = $uudiseid_kokku[0];
-            $lehti_kokku = ceil($lehti_kokku/$uudiseid_lehel);
+            $uudisedarv= 4;
+            $uudisedparing = "SELECT COUNT('id') FROM uudised";
+            $lehtvastus = mysqli_query($yhendus, $uudisedparing);
+            $uudiseidkokku = mysqli_fetch_array($lehtvastus);
+            $lehtikokku = $uudiseidkokku[0];
+            $lehtikokku = ceil($lehtikokku/$uudisedarv);
         // oh sa jeesus mitu muuutijat
-            echo 'Lehekülgi kokku: ' . $lehti_kokku . '<br>';
-            echo 'Uudiseid lehel: ' . $uudiseid_lehel . '<br>';
+            echo 'lehekulgi on ' . $lehtikokku . '<br>';
+            echo 'uudised on ' . $uudisedarv. '<br>';
 
             if (isset($_GET['leht'])) {
                 $leht = $_GET['leht'];
@@ -35,8 +32,8 @@ session_start();
                 $leht = 1;
             }
 
-            $start = ($leht-1) * $uudiseid_lehel;
-            $paring = "SELECT * FROM uudised LIMIT $start, $uudiseid_lehel";
+            $alg = ($leht - 1) * $uudisedarv;
+            $paring = "SELECT * FROM uudised LIMIT $alg, $uudisedarv";
             $vastus = mysqli_query($yhendus, $paring);
 
             while ($rida = mysqli_fetch_assoc($vastus)){
@@ -47,26 +44,23 @@ session_start();
             $eelmine = $leht - 1;
             $jargmine = $leht + 1;
 
-            if ($leht>1) {
+            if ($leht > 1) {
                 echo "<a href=\"?leht=$eelmine\">Eelmine</a> ";
             }
-            if ($lehti_kokku >= 1) {
-                for ($i=1; $i<=$lehti_kokku ; $i++) { 
-                    if ($i==$leht) {
+            if ($lehtikokku >= 1) {
+                for ($i = 1; $i <= $lehtikokku ; $i++) { 
+                    if ($i == $leht) {
                         echo "<b><a href=\"?leht=$i\">$i</a></b> ";
                     } else {
                         echo "<a href=\"?leht=$i\">$i</a> ";
                     }
-                    
                 }
             }
-            if ($leht<$lehti_kokku) {
-            echo "<a href=\"?leht=$jargmine\">Järgmine</a> ";
+            if ($leht < $lehti_kokku) {
+                echo "<a href=\"?leht=$jargmine\">Järgmine</a> ";
             }
             ?>
-        <?php
-        $yhendus->close();
-        ?>   
+        <?php $yhendus->close(); ?>   
         </div>
 
         <script
