@@ -19,7 +19,7 @@
                 <input type="text" name="username" id="username" required><br>
                 <label for="parool">parool: </label>
                 <input type="password" name="parool" id="parool" required><br>
-                <input type="submit" class="btn btn-success my-2" value="Login">
+                <input type="submit" class="btn" value="Login">
             </form>
 
             <?php
@@ -30,8 +30,8 @@
                 $sql = "SELECT parool FROM kasutajad WHERE kasutaja = '$kasutaja'";     
                 $result = $yhendus->query($sql);
 
-                if($result->num_rows > 0){
-                    $row = $result->fetch_assoc();
+                if($result -> num_rows > 0){
+                    $row = $result -> fetch_assoc();
                     $hashed = $row['parool'];
 
                     if(password_verify($parool, $hashed)){
@@ -48,7 +48,7 @@
             }
             ?>
 
-            <?php $yhendus->close(); ?>   
+            <?php $yhendus -> close(); ?>   
             </div>
         </body>
     </html>
