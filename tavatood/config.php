@@ -8,7 +8,7 @@ $database = "muusikapood"; // andmebaasi nimi
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Kontrollime ühendust
-if ($conn->connect_error) {
-    die("Ühendus ebaõnnestus: " . $conn->connect_error);
+if ($conn -> connect_error) {
+    die("uhendus paha " . $conn->connect_error);
 }
 ?>
