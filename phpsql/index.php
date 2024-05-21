@@ -75,7 +75,7 @@
                         ?>
                         <tr>
                             <!-- paneb need asjad tabelisse -->
-                            <td><a href="lisahinnang.php?koht= <?php echo urlencode($id); ?> "> <?php echo $row["nimi"]; ?> </a></td>
+                            <td><a href="hinnang.php?koht= <?php echo urlencode($id); ?> "> <?php echo $row["nimi"]; ?> </a></td>
                             <td> <?php echo $row["asukoht"]; ?> </td>
                             <td> <?php echo round($Khinne, 1);?> </td>
                             <td> <?php echo $hinnanuteArv; ?> </td>
