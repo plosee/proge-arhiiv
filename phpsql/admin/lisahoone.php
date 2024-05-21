@@ -18,7 +18,7 @@ while ($tyyp = $hoonetyybidparis -> fetch_assoc()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KThindakogemust</title>
+    <title>lisa hoonbe</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
@@ -28,7 +28,7 @@ while ($tyyp = $hoonetyybidparis -> fetch_assoc()) {
     <div class="container">
         <h1> lisa asututs</h1>
         <hr>
-        <a href="/KThindakogemust/admin"><--Tagasi</a>
+        <a href="/KT/admin">siit tagasi</a>
         <br>
         <br>
         <form method="post">
@@ -45,7 +45,7 @@ while ($tyyp = $hoonetyybidparis -> fetch_assoc()) {
                 <?php } ?>
             </select><br>         
 
-            <input type="submit" class="btn btn-primary my-2" value="Salvesta">
+            <input type="submit" class="btn" value="salvesta">
         </form>
         <?php
         if(!empty($_POST['nimi']) && !empty($_POST['aadress']) && !empty($_POST['tyyp'])){
@@ -53,10 +53,10 @@ while ($tyyp = $hoonetyybidparis -> fetch_assoc()) {
             $aadress = $_POST['aadress'];
             $tyyp = $_POST['tyyp'];
 
-            $sqlLisaAsutus = "INSERT INTO kohad (nimi, asukoht, tyyp) VALUES ('$nimi', '$aadress', '$tyyp')";
-            if ($yhendus->query($sqlLisaAsutus) === TRUE){
-                echo "Asutus on edukalt lisatud.";
-                header("Location: /KThindakogemust/admin/");
+            $lisahoone = "INSERT INTO kohad (nimi, asukoht, tyyp) VALUES ('$nimi', '$aadress', '$tyyp')";
+            if ($yhendus -> query($lisahoone) === TRUE){
+                echo "hoone lisatud";
+                header("Location: /KT/admin/");
                 exit;
             }
         }
