@@ -27,7 +27,7 @@ if(isset($_GET['koht'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KThindakogemust</title>
+    <title>muuda asutust</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"
@@ -54,7 +54,7 @@ if(isset($_GET['koht'])) {
                 <?php } ?>
             </select><br>         
 
-            <input type="submit" class="btn btn-primary my-2" value="Salvesta">
+            <input type="submit" class="btn" value="Salvesta">
         </form>
         <?php
         if(!empty($_POST['nimi']) && !empty($_POST['aadress']) && !empty($_POST['tyyp'])){
@@ -62,17 +62,14 @@ if(isset($_GET['koht'])) {
             $aadress = $_POST['aadress'];
             $tyyp = $_POST['tyyp'];
 
-            $sqlMuudaAsutus = "UPDATE kohad SET nimi='$nimi', asukoht='$aadress', tyyp='$tyyp' WHERE id = '$valitudkohtid'";
-            if ($yhendus->query($sqlMuudaAsutus) === TRUE){
-                echo "Asutus on edukalt muudetud.";
+            $muudamaja = "UPDATE kohad SET nimi='$nimi', asukoht='$aadress', tyyp='$tyyp' WHERE id = '$valitudkohtid'";
+            if ($yhendus -> query($muudamaja) === TRUE){
+                echo "hoone muudatud";
                 header("Location: /KT/admin/");
                 exit;
             }
         }
         ?>
-
-
-
         <?php $yhendus->close(); ?>   
     </div>
     </body>
