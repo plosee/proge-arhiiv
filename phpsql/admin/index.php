@@ -1,5 +1,5 @@
 <?php
-include ("C:/xampp/htdocs/KT/config.php");
+include (".../KT/config.php");
 session_start();
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -71,7 +71,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                         $hinnanutearvfetch = $hinnanutevastus -> fetch_assoc()['hinnanute_arv'];
 
                         $keskminehinnequery = "SELECT AVG(hinnang) as keskmine_hinne FROM hinnangud WHERE id_koht = '$id'";
-                        $keskminehinnevastus = $yhendus -> query($keskminehinnevastus);
+                        $keskminehinnevastus = $yhendus -> query($keskminehinnequery);
                         $keskminehinnefetch = $keskmineHinneResult -> fetch_assoc()['keskmine_hinne'];
                         $keskminehinneumarda = round($keskminehinnefetch,1);
 
