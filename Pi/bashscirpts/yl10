@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# kysime kasutajalt asju
+read -p "Kasutajanimi palun: " username
+read -sp "parool palun: " parool
+
+# lisame kasutaja andmed ja teeme kodukausta
+sudo useradd -m "$username"
+echo "$username:$parool" | sudo chpasswd
+
+# teeme kodukausta faili
+sudo mkdir /home/"$username"/kataloog
+sudo touch /home/"$username"/kataloog/teretulemast_"$username".txt
+
+# kui eraldi grupp on argumendina valja toodud, siis pane antud gruppi
+# kui pole, siis pane kylalistesse
+# haha
+if [ -z "$1" ]; then
+        GROUP="kylalised"
+else
+        GROUP="$1"
+fi
+
+sudo usermod -aG "$GROUP" "$username"
+
+echo "$username lisatud, parooliga $parool."
+echo "lisatud gruppi $GROUP"
