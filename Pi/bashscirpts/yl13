@@ -1,0 +1,25 @@
+#!/bin/bash
+# funktsiooni valmistamine
+varunda() {
+        # kui faili pole olemas siis ytle kasutajale ja pane skript kinni
+        if [ ! -f "$1" ]; then
+                echo "faili $1 pole"
+                return 1
+        fi
+        # fail on esimene argument
+        fail="$1"
+        # kui bakcup kaust ei ole olemas siis ehita see
+        if [ ! -d "/home/mlaane/backup" ]; then
+                sudo mkdir /home/mlaane/backup
+        fi
+        # muutujad kuupaeva, backup kausta ja backupimise faili asukoha jaoks
+        kuupaev=$(date +"%Y-%m-%d_%H-%M-%S")
+        backup="/home/mlaane/backup"
+        backupfail="$backup/fail_$kuupaev.txt"
+        # kopeerime originaali backup kausta
+        cp "$1" "$backupfail"
+        echo "tehtud"
+}
+
+# kaivitame funktsiooni
+varunda "/home/mlaane/bashskriptid/kids.txt"
