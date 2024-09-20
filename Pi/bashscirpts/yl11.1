@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# systemctl vaatab kas argument 1 on toimiv
+olek=$(systemctl is-active $1)
+
+# kui argumenti pole
+if [ -z "$1" ]; then
+        echo "sul ei ole argumenti poiss"
+
+# kui argument on aktiivne, kirjuta vark
+elif [ "$olek" == "active" ]; then
+        echo "$1 on aktiivne"
+
+# kui argument ei ole, kirjuta hoiatus
+else
+        echo "hoiatus: $1 ei toota"
+fi
