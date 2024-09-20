@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# teeme stat kasust muutuja, et saame seda hiljem esimese argumendiga toole panna
+oigused=$(stat -c %a $1)
+
+# kui argumenti pole anna teada 
+if [ -z "$1" ]; then
+        echo "sul pole esimest argumenti"
+elif [ -z "$2"]; then
+        echo "sul pole teist argumenti"
+fi
+
+# kui esimene argument on fail
+if [ -f "$1" ]; then
+        # vaata kas oigused kattuvad teise argumendiga
+        if [ "$oigused" == $2 ]; then
+                echo "oigused korras"
+
+        # kui ei kattu, tryki lolli juttu
+        else
+                echo "oigused on $oigused ... vale, proovi teha $2"
+        fi
+# kui esimene argument pole fail, tryki lolli juttu
+else
+        echo "kuule... $1 pole fail.."
+fi
