@@ -1,0 +1,42 @@
+#!/bin/bash
+
+PS3="VALI TEGEVUS: "
+# teeme switch casei vajalike valikutega
+select TEGEVUS in "Uuenda debian" "Installi apache2" "Kustuta apache2" Valju
+do
+        case $REPLY in
+        1)
+        # uuendame, kui toimib anname teksti ja vastupidi
+        sudo apt update -y && echo "proovime uuendada" || echo "ebaonnestus uuendamine";;
+        2)
+        # kui apache2 on olemas juba karjume kasutaja peale
+        if dpkg -l | grep -q apache2; then
+                echo "apache on ju olemas"
+        # kui pole siis proovime installida
+        else
+                sudo apt install apache2 -y && echo "paigaldame apache" || echo "pettumus, ei lainud labi paigaldamine"
+        fi;;
+        3)
+        # vaatame kas apache2 on olemas
+        if dpkg -l | grep -q apache2; then
+                # kui on, lylitame apache2 valja
+                echo "apache2 olemas, lylitan valja"
+                sudo systemctl stop apache2
+                # kustutame apache2 ja sellega tulevad extra moodulid
+                echo "votan apache2 ara"
+                sudo apt-get remove --purge apache2 apache2-utils apache2-bin apache2.2-common -y
+                echo "apache lannu"
+
+        else
+        # kui ei ole apachet, karjume kasutaja peale
+                echo "sul pole isegi apachet mv"
+        fi;;
+        # paneme kinni parast 1 sekundit
+        4) echo "sulgen"
+        sleep 1
+        break
+        ;;
+        # kui valik pole listis, karjume kasutaja peale
+        *) echo "Kontrolli sisestust: $REPLY";;
+        esac
+done
