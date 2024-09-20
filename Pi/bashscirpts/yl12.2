@@ -1,1 +1,20 @@
+#!/bin/bash
 
+# paneme nimekirja muutujasse lihtsaks kasutamiseks
+nimekiri="nimekiri.txt"
+
+# kui nimekiri on fail
+if [ -f "$nimekiri" ]; then
+        # loe read
+        while read enimi pnimi; do
+                # ehitame parooli ja kasutajanime muutujates
+                parool=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c12)
+                kasutaja="$enimi.$pnimi"
+                # printime ees perenime, kasutajanime ja parooli ning vahetame eesti tahed
+                rida=$(echo "$pnimi $enimi" | echo "kasutajanimi: ${kasutaja,,} ; parool: $parool" | sed 'y/õüäöÕÜÄÖ/ouaoOUAO/')
+                echo "${rida,,}"
+                # lisame need kasutajaks ja paneme kasutajatele paroolid
+                sudo useradd -m "${kasutaja,,}"
+                echo "${kasutaja,,}:$parool" | sudo chpasswd
+        done < "$nimekiri"
+fi
