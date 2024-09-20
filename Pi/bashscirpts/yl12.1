@@ -1,0 +1,7 @@
+#!/bin/bash
+
+kasutajad="/etc/passwd"
+
+while IFS=":" read kasutaja a b c d e f; do
+        echo "$kasutaja"
+done < "$kasutajad"
