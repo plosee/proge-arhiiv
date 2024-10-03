@@ -1,0 +1,30 @@
+---
+- name: Installi vajalik tarkvara
+  hosts: LinuxiServerid
+  become: yes
+  vars:
+    required_packages:
+      - tmux
+      - fish
+      - wget
+      - mc
+      - tree
+      - curl
+      - git
+
+  tasks:
+    - name: check
+      package_facts:
+      
+    - name: ttee kindlaks kas koik olemas
+      package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ required_packages }}"
+      register: package_status
+
+    - name: anna teada puuduvatest
+      debug:
+        msg: "Package {{ item }} pole installed."
+      loop: "{{ required_packages }}"
+      when: item not in package_status.results | map(attribute='name') | list
