@@ -1,0 +1,11 @@
+/var/log/clients/app/*.log {
+    size 50M
+    rotate 5
+    compress
+    delaycompress
+    notifempty
+    create 0640 loguser loggroup
+    postrotate
+        systemctl reload rsyslog
+    endscript
+}
