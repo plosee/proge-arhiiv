@@ -1,0 +1,8 @@
+/var/log/dashboard_access.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    create 0640 loguser loggroup
+}
