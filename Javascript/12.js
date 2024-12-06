@@ -65,5 +65,7 @@ ostukorv.lisaToode("villanoppija", 200, 1); ostukorv.sisu();
 ostukorv.koguSumma()
 
 ostukorv.tooted.forEach(element => {
-    ul.innerHTML += `<li>${element}</li>`
+    ul.innerHTML += `<li>Toode: ${element.nimi}, Hind: ${element.hind}, Kogus: ${element.kogus}</li>`;
 });
+
+p.innerHTML += `<p>${ostukorv.koguSumma()} on kogusumma</p>`
