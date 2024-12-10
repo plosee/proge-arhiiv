@@ -1,7 +1,9 @@
 print = console.log
 
+// valime .card asja
 const card = document.querySelectorAll(".card")
 
+// iga asja mis card all on
 card.forEach(card => {
     const img = card.querySelector('.card-img-top')
     const datatitle = img.getAttribute('data-title')
